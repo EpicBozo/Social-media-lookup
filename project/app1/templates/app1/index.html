@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookup</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Lookup</h1>
+        <form action="results/" method="POST">
+            {% csrf_token %}
+            <input class="lookup"type="text" name="lookup" placeholder="Enter a word">
+            <button class="lookup" type="submit">Lookup</button>
+        </form>
+        <div class="result">
+            {% if result %}
+                <h2>{{ result }}</h2>
+            {% endif %}
+        </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
